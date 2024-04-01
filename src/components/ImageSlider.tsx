@@ -77,6 +77,8 @@ const Slider = ({
   useEffect(() => {
     if (images === undefined) {
       setimages(DummyImage);
+    } else {
+      setimages(images);
     }
     return () => {};
   }, []);
@@ -104,11 +106,11 @@ const Slider = ({
         ))}
       </ScrollView>
       <View style={styles.pagination}>
-        {Images.map((i, k) => (
+        {Images.map((i: string, index: number) => (
           <Text
-            key={k}
+            key={index}
             style={
-              k == active
+              index == active
                 ? { fontSize: 40, color: dotColor }
                 : { fontSize: 40, color: inActiveDotColor }
             }

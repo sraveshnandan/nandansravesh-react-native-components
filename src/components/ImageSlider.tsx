@@ -55,7 +55,7 @@ const Slider = ({
   if (infinite === true) {
     useEffect(() => {
       const interval = setInterval(() => {
-        if (active < Images.length - 1) {
+        if (Images && active < Images.length) {
           scrollViewRef.current?.scrollTo({
             x: (active + 1) * width,
             animated: true,
@@ -110,9 +110,9 @@ const Slider = ({
           <Text
             key={index}
             style={
-              index == active
-                ? { fontSize: 40, color: dotColor }
-                : { fontSize: 40, color: inActiveDotColor }
+              index === active
+                ? { fontSize: 45, marginHorizontal: 5, color: dotColor }
+                : { fontSize: 45, marginHorizontal: 5, color: inActiveDotColor }
             }
           >
             •
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   pagination: {
     flexDirection: "row",
     position: "absolute",
-    bottom: -15,
+    bottom: -10,
     alignSelf: "center",
   },
 });
